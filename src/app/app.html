@@ -36,7 +36,7 @@
     <div class="menu-content">
       <accordion [title]="'Categories'">
         <ion-list>
-          <button ion-item *ngFor="let category of categories" (click)="gotoProducts(category)" menuClose>          
+          <button ion-item *ngFor="let category of categories" (click)="gotoProducts(category)" menuClose>
             <p>{{category.categoryName}}</p>
           </button>
         </ion-list>
@@ -52,7 +52,7 @@
         </ion-item>
       </ion-list>
       <ion-list>
-        <button menuClose ion-item (click)="logout()">          
+        <button menuClose ion-item (click)="logout()">
           <ion-icon name="log-out" item-start color="primary"></ion-icon>
           Log Out
         </button>

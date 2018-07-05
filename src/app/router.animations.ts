@@ -36,3 +36,18 @@ export function moveInLeft() {
     ])
   ]);
 }
+
+export function slideIn(){
+  trigger('heroState', [
+    state('void', style({
+      backgroundColor: '#eee',
+      transform: 'scale(1)'
+    })),
+    state('*',   style({
+      backgroundColor: '#cfd8dc',
+      transform: 'scale(1.1)'
+    })),
+    transition('void => *', animate('100ms ease-in')),
+    transition('* => void', animate('100ms ease-out'))
+  ])
+}

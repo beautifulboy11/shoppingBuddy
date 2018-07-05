@@ -12,9 +12,14 @@ export class ProductService {
     return this.afs.collection<Product>('products', ref => { return ref.where('category', '==', category.categoryName) }).valueChanges()
   }
 
-  getCategories(): Observable<Array<Category>> {
+  get getCategories(): Observable<Array<Category>> {
     return this.afs.collection<Category>('categories').valueChanges();
   }
+
+  get getStores(): Observable<Array<Category>> {
+    return this.afs.collection<any>('stores').valueChanges();
+  }
+
 
   saveCategory(category: Category): any {
     var id = this.afs.createId();

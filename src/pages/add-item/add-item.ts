@@ -28,8 +28,8 @@ export class AddItemPage implements OnInit {
   public downloadURL: string;
   isReadyToSave: boolean;
   public options: Category[];
-  public isprofilePicSet = false;
-  public stores: Array<{ storeName: string }>;
+  public isprofilePicSet = false;  
+  public storeoptions: Array<any>;
   category: Category;
   progressPercentage: number;
   productForm: FormGroup;
@@ -135,17 +135,24 @@ export class AddItemPage implements OnInit {
   ngOnInit() {
     this.createForm();
     this.getCategories();
+    this.getStores();
+  }
+
+  getStores(){
+    this.service.getStores.subscribe(stores=>{
+      this.storeoptions = stores;
+    });
   }
 
   ionViewDidLoad() {
-    //if(this.category.categoryName != null){      
-    //  this.productForm.controls["category"].setValue(this.category.categoryName);
-    // }
+    if(this.category.categoryName != null){      
+     this.productForm.controls["category"].setValue(this.category.categoryName);
+    }
   }
   getCategories(): void {
-    //this.service.getCategories().subscribe(categories => {
-    //  this.options = categories;
-    //});
+    this.service.getCategories.subscribe(categories => {
+     this.options = categories;
+    });
   }
 
   createForm(): void {
@@ -176,11 +183,11 @@ export class AddItemPage implements OnInit {
 
 
   createItem() {
-    //this.saveProduct();
+    this.saveProduct();
   }
 
   cancel() {
-    //this.vCtrl.dismiss();
+    this.vCtrl.dismiss();
   }
 
   //done() {

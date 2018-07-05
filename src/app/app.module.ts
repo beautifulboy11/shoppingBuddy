@@ -13,10 +13,10 @@ import { Camera } from "@ionic-native/camera";
 import { UploadFileService } from '../providers/providers';
 import { ProductService } from '../providers/providers';
 import { MyApp } from "./app.component";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { PipesModule } from "../pipes/pipes.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from '../components/components.module';
 import { AuthService } from '../providers/providers';
+import { Keyboard } from "@ionic-native/keyboard";
 // import { AuthGuardProvider } from '../providers/auth-guard/auth-guard';
 
 @NgModule({
@@ -41,6 +41,7 @@ import { AuthService } from '../providers/providers';
   providers: [
     StatusBar,
     Camera,
+    Keyboard,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UploadFileService,

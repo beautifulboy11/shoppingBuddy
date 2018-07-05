@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController, MenuController } from 'ionic-angular';
 import { AuthService } from '../../providers/providers';
-import { moveIn, fallIn } from '../../app/router.animations';
+import { moveIn } from '../../app/router.animations';
 
 @IonicPage()
 @Component({

@@ -57,18 +57,18 @@
     font-size: 1.4rem;
     line-height: normal;
     text-overflow: inherit;
-    color: #fffdfd;
+    //color: #fffdfd;
   }
-  ion-avatar p {
-    padding: 12px 16px 16px 16px;
-    background-color: map-get($colors, primary);
-    border-radius: 50%;
-    color: azure;
-    font-weight: bold;
-    overflow: hidden;
-    width: 40px;
-    height: 40px;
-  }
+  // ion-avatar p {
+  //   padding: 12px 16px 16px 16px;
+  //   background-color: map-get($colors, primary);
+  //   border-radius: 50%;
+  //   color: azure;
+  //   font-weight: bold;
+  //   overflow: hidden;
+  //   width: 40px;
+  //   height: 40px;
+  // }
   ion-avatar p,
   ion-thumbnail p {
     display: block;

@@ -18,10 +18,10 @@ export class MyApp implements OnInit {
   rootPage: any = "LoginPage";
   showSplash: boolean = true;
   categories: Array<Category>;
-
+  
   constructor(
     public platform: Platform,
-    private keyboard: Keyboard,
+    public keyboard: Keyboard,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public service: AuthService,
@@ -37,6 +37,9 @@ export class MyApp implements OnInit {
       if (this.platform.is('ios')) {
         this.keyboard.disableScroll(true);
       } if (this.platform.is('cordova')) {
+        this.keyboard.disableScroll(true);
+      }
+      if (this.platform.is('android')) {
         this.keyboard.disableScroll(true);
       }
       this.splashScreen.hide();
@@ -56,7 +59,7 @@ export class MyApp implements OnInit {
   }
 
   getCategories() {
-    this.productService.getCategories().subscribe(category => {
+    this.productService.getCategories.subscribe(category => {
       this.categories = category;
     });
   }

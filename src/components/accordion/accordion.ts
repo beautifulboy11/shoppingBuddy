@@ -9,7 +9,7 @@ import {
 
 @Component({
   selector: "accordion",
-  templateUrl: './accordion.html'
+  templateUrl: './accordion.html',  
 })
 export class AccordionComponent implements OnInit {
   @ViewChild("content", { read: ElementRef }) Content;
