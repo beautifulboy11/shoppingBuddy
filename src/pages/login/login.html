@@ -1,0 +1,46 @@
+<ion-content padding-horizontal>
+  <div class="text-center">
+    <div class="entry-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="{{logo}}" alt="logo">
+        </a>
+      </div>
+    </div> 
+    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+    <form #formData='ngForm' (ngSubmit)="signIn(formData)" class="form-signin">
+
+      <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control" placeholder="Email address" required
+        autofocus="" />
+      <div style="height: 10px;"></div>
+      <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" required=""
+      />
+      <p>
+        <a style="color:#488aff;" href="#">Forgot your Password ?</a>
+      </p>
+      <button type="submit"[disabled]="!formData.valid" class="btn btn-lg btn-primary btn-block">Login in</button>     
+    </form>
+
+    <div style="width:100%;">
+      <strong class="line-thru or-sign-in">OR</strong>
+    </div>
+
+    <button ion-button class="btn btn-lg btn-facebook btn-block" (click)="facebookSignIn()">
+      <ion-icon name="logo-facebook" #facebook style="margin-right:30px;"></ion-icon>
+      &nbsp;&nbsp;Sign in with Facebook
+    </button>
+
+    <button ion-button class="btn btn-lg btn-google btn-block" (click)="googleSignIn()">
+      <ion-icon name="logo-google" #google style="margin-right:30px;"></ion-icon>
+      &nbsp;&nbsp;Sign in with Google
+    </button>
+
+    <p class="entry-signup-cta">Don't Have An Account ?
+      <a clear style="color:#488aff;" (click)='entrySignUp()'>SignUp</a>
+    </p>
+    <p class="mt-5 mb-3 text-muted">© 2018</p>
+  </div>
+  <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
+  <!-- <label for="inputPassword" class="sr-only">Password</label> -->
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header clear no-border>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-searchbar [showCancelButton]="true"></ion-searchbar>
+  <ion-segment [(ngModel)]="type">
+    <ion-segment-button class="segment-button segment-activated" role="button" tappable="" value="category" aria-pressed="true">
+      Category
+      <div class="button-effect"></div>
+    </ion-segment-button>
+    <ion-segment-button class="segment-button" role="button" tappable="" value="products" aria-pressed="false">
+      Products
+      <div class="button-effect"></div>
+    </ion-segment-button>
+    <ion-segment-button class="segment-button" role="button" tappable="" value="stores" aria-pressed="false">
+      Stores
+      <div class="button-effect"></div>
+    </ion-segment-button>
+  </ion-segment>
+  
+</ion-content>
+

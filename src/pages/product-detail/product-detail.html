@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Product Details</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    <div class="profile">
+      <div class="profile-image" text-center>
+        <img [src]="selectedProduct?.profilePic" class="image-circle" style="height: 100%;" />
+      </div>
+      <div text-center style="color: #fff;">
+          <h2 style="margin-top: 0rem;">{{selectedProduct?.productName}}</h2>
+          <ion-note>ZMK{{selectedProduct?.storePrice}}</ion-note>
+      </div>
+    </div>    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content no-padding margin-top>
+  <ion-list>
+    <ion-item>
+      Product Name: {{selectedProduct?.productName}}
+    </ion-item>
+    <ion-item>
+      Decription: {{selectedProduct?.productDescription}}
+    </ion-item>
+    <ion-item>
+      Category: {{selectedProduct?.category}}
+    </ion-item>
+    <ion-item>
+      Store: {{selectedProduct?.storeName}}
+    </ion-item>
+    <ion-item>
+      Price: {{selectedProduct?.storePrice}}
+    </ion-item>
+  </ion-list>
+</ion-content>
+

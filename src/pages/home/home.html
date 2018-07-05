@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button menuClose ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div *ngIf="isLoading" style="margin: auto; margin-top: 10px;" text-center>
+    <ion-spinner name="bubbles" style="color:#488aff;" item-center></ion-spinner>
+    <p style="color:#488aff;">
+      <i>Loading Categories ... </i>
+    </p>
+  </div>
+
+  <main>
+    <div style="margin-top:0px;" class="carousel slide" data-ride="carousel" margin-top no-padding>
+      <ion-slides *ngIf="ready" #mainslide autoplay="3000" loop="true" direction="horizontal" pager="false">
+        <ion-slide *ngFor="let slide of bannerslide">
+          <img [src]="slide?.image" [alt]="slide.description" [title]="slide.title" />
+        </ion-slide>
+      </ion-slides>
+      <a class="left carousel-control" href="#" role="button" (click)="previousSlide()">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#" role="button" (click)="nextSlide()">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+
+    <ion-grid style="padding-top:5px;" no-margin>
+      <ion-row class="row">
+        <ion-col hidden-xs col-sm-3 col-md-4>
+          <hr>
+        </ion-col>
+        <ion-col col-xs-12 col-sm-6 col-md-4 text-center style="white-space: nowrap;">
+          <h3 style="margin-top: -5px;">
+            <strong>Browse</strong>&nbsp;by Category</h3>
+        </ion-col>
+        <ion-col hidden-xs col-sm-3 col-md-4>
+          <hr>
+        </ion-col>
+      </ion-row>
+
+      <ion-row align-items-center justify-content-center>
+        <ion-col col-12 col-xs-12 col-sm-12 col-md-3 align-self-center *ngFor="let item of items" text-center>
+          <div (click)="gotoProducts(item.category)">
+            <img [class]="item.class" [title]="item.title" [src]="item.src" [alt]="item.alt">
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </main>
+  <ion-fab right bottom>
+    <button ion-fab mini color="secondary" (click)="addCategory()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
+

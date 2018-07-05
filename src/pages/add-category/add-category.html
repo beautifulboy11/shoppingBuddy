@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Category</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only color="light" (click)="cancel()" tappable>
+        <ion-icon name="close" style="font-size: 1.8em; font-weight:bold;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="done()" color="light" [disabled]="!isReadyToSave" strong tappable>
+        <ion-icon name="checkmark" style="font-size: 1.8em; font-weight:bold;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="flexo">
+      <ion-col col-12>
+        <form *ngIf="form" [formGroup]="form">
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Category Name:</ion-label>
+              <ion-input type="text" placeholder="Toiletries" formControlName="categoryName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Description:</ion-label>
+              <ion-textarea formControlName="description" placeholder="Enter a description"></ion-textarea>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

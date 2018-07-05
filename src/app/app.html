@@ -1,0 +1,65 @@
+<div *ngIf="showSplash" class="splash">
+  <div class="">
+    <h1 class="ml1">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters">SHOPPING BUDDY</span>
+        <span class="line line2"></span>
+      </span>
+    </h1>
+  </div>
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>
+
+<ion-menu [content]="content">
+  <ion-header no-border>
+    <ion-navbar>
+      <ion-title>Shopping Buddy</ion-title>
+      <ion-buttons end>
+        <button menuClose ion-button clear icon-only>
+          <ion-icon name="close" clear></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ion-toolbar no-border>
+      <div class="account-info">
+        <p class="item-start" style="padding-left: 10px;">Febby N.N.D</p>
+        <p class="item-end">Account</p>
+      </div>
+    </ion-toolbar>
+    <div class="menu-content">
+      <accordion [title]="'Categories'">
+        <ion-list>
+          <button ion-item *ngFor="let category of categories" (click)="gotoProducts(category)" menuClose>          
+            <p>{{category.categoryName}}</p>
+          </button>
+        </ion-list>
+      </accordion>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="cart" item-start color="primary"></ion-icon>
+          My Cart
+        </ion-item>
+        <ion-item>
+          <ion-icon name="cog" item-start color="bright"></ion-icon>
+          Settings
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <button menuClose ion-item (click)="logout()">          
+          <ion-icon name="log-out" item-start color="primary"></ion-icon>
+          Log Out
+        </button>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content [swipeBackEnabled]="false"></ion-nav>

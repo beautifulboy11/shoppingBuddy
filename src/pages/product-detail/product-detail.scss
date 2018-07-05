@@ -1,0 +1,28 @@
+page-product-detail {
+.item{
+    p{
+        color: #333;
+    }
+}
+.profile {
+    width: 100%;
+    height: 150px;
+    padding-top: 20px 5px;
+  }
+  .profile-image {
+    margin: auto;
+    height: 90px;
+    width: 90px;
+    display: block;
+    border-radius: 50% !important;
+    overflow: hidden;
+  }
+  .image-cirle {
+    height: 100%;
+    width: 90px;
+    display: block;
+    border-radius: 50% !important;
+    overflow: hidden;
+  }
+  
+}

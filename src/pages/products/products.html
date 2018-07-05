@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Product List</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addProduct()" color="light" strong>
+        <ion-icon name="add" style="font-size: 1.8em; font-weight:bold;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar text-center style="color: #fff;">
+    <div style="padding-bottom:10px; margin-bottom:15px; color:#fff;" class="item-profile" text-center #profilePic>
+      <ion-avatar style="padding-top:0px; margin-bottom:0px">
+        <ion-icon color="secondary" name="ios-leaf" style="font-size: 50px;"></ion-icon>
+      </ion-avatar>
+      <h2 style="padding-top:0px; margin-bottom:0px">{{category?.categoryName}}</h2>
+      <ion-note>{{category?.description}}</ion-note>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div text-center *ngIf="isLoading" class="loading">
+    <ion-spinner name="crescent" style="margin: auto; margin-top: 10px;" item-center></ion-spinner>
+    <p style="color:#488aff;">
+      <i>Loading Products ... </i>
+    </p>
+  </div>
+
+  <ion-list>
+    <ion-item *ngIf="products.length == 0">
+      <p style="color:#488aff;">
+        No Products found for this category!!!
+      </p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let product of products" (click)="itemSelected($event, product)">
+      <ion-avatar item-start>
+        <img [src]="product?.profilePic" />
+      </ion-avatar>
+
+      <h2>{{product.productName}}</h2>
+      <p style="color:grey;">{{product.productDescription}}</p>
+      <ion-note item-end>ZMK {{product.storePrice}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

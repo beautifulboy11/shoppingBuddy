@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>New Product</ion-title>
+        <ion-buttons left>
+            <button ion-button icon-only color="light" (click)="cancel()">
+        <ion-icon name="close" style="font-size: 1.8em; font-weight:bold;"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class="no-scroll">
+    <ion-item-group>
+        <ion-item-divider color="light">Add New Product</ion-item-divider>
+    </ion-item-group>
+
+    <ion-row class="flexo">
+        <ion-col col-12>
+            <form *ngIf="productForm" [formGroup]="productForm" (ngSubmit)="createItem()">
+                <input type="file" #fileInput style="visibility: hidden; height: 0px;" name="files[]" (change)="chooseFiles($event)" accept=".jpeg,.png,.jpg" />
+                <div class="profile-image-wrapper" (click)="getPicture()" tappable>
+                    <div class="profile-image-placeholder" *ngIf="!this.productForm.controls.profilePic.value">
+                        <ion-icon name="add"></ion-icon>
+                        <div>
+                            Add Image
+                        </div>
+                    </div>
+                    <div style="z-index: 1000; margin-left: -30px;">
+                        <ion-spinner *ngIf="isprofilePicSet && progressPercentage < 100" name="crescent"></ion-spinner>
+                    </div>
+                    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="isprofilePicSet">
+                    </div>
+                    <div style="margin: auto;">
+                        <p *ngIf="isprofilePicSet && progressPercentage < 100" style="color: #0a8630;">Uploading</p>
+                    </div>
+                    <div class="progress-outer" *ngIf="isprofilePicSet && progressPercentage < 100">
+                        <div class="progress-inner" [style.width]="progressPercentage + '%'">
+                        </div>
+                    </div>
+                </div>
+
+                <ion-list>
+                    <ion-item>
+                        <ion-label stacked>Product Name</ion-label>
+                        <ion-input type="text" placeholder="" formControlName="productName"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label stacked>Store</ion-label>
+                        <ion-select formControlName="storeName">
+                            <ion-option *ngFor="let store of stores" [value]="store.storeName">{{store.storeName}}</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Store Price</ion-label>
+                        <ion-input type="text" formControlName="storePrice"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label stacked>Description</ion-label>
+                        <ion-input type="text" placeholder="" formControlName="productDescription"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label stacked>Category</ion-label>
+                        <ion-select formControlName="category">
+                            <ion-option *ngFor="let option of options" [value]="option.categoryName">{{option.categoryName}}</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                </ion-list>
+                <button ion-button type="submit" color="primary" [disabled]="!isReadyToSave">
+          Save
+        </button>
+
+            </form>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

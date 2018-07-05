@@ -1,0 +1,8 @@
+{
+  "name": "shoppingBuddy",
+  "app_id": "5f080152",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

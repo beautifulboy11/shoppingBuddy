@@ -1,0 +1,31 @@
+.ios,
+.md {
+  page-home {
+    .strikethrough{
+      text-decoration: line-through;
+    }
+    .swiper-pagination-bullet-active {
+      background: #ec008c;
+    }
+    .swiper.paginatio-bullet {
+      bottom: 70px;
+    }
+    .carousel-control>span {
+      color: red;
+    }
+    .card {
+      line-height: 1.42857143;
+      margin-bottom: 20px;
+      padding: 4px;
+      display: block;
+      position: relative;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      -webkit-transition: border 0.2s ease-in-out;
+      -o-transition: border 0.2s ease-in-out;
+      transition: border 0.2s ease-in-out;
+    }
+  }
+}
+
