@@ -28,7 +28,7 @@ export class AddItemPage implements OnInit {
   public downloadURL: string;
   isReadyToSave: boolean;
   public options: Category[];
-  public isprofilePicSet = false;  
+  public isprofilePicSet = false;
   public storeoptions: Array<any>;
   category: Category;
   progressPercentage: number;
@@ -74,11 +74,11 @@ export class AddItemPage implements OnInit {
     };
     if (Camera["installed"]()) {
       this.camera.getPicture(cameraOptions).then((data) => {
-          this.productForm.patchValue({ profilePic: data });
-          this.selectedFiles = data;
-          this.uploadpic();
-        },(err) => {
-          alert("Unable to take photo " + err);
+        this.productForm.patchValue({ profilePic: data });
+        this.selectedFiles = data;
+        this.uploadpic();
+      }, (err) => {
+        alert("Unable to take photo " + err);
       });
     } else {
       this.fileInput.nativeElement.click();
@@ -138,20 +138,20 @@ export class AddItemPage implements OnInit {
     this.getStores();
   }
 
-  getStores(){
-    this.service.getStores.subscribe(stores=>{
+  getStores() {
+    this.service.getStores.subscribe(stores => {
       this.storeoptions = stores;
     });
   }
 
   ionViewDidLoad() {
-    if(this.category.categoryName != null){      
-     this.productForm.controls["category"].setValue(this.category.categoryName);
+    if (this.category.categoryName != null) {
+      this.productForm.controls["category"].setValue(this.category.categoryName);
     }
   }
   getCategories(): void {
     this.service.getCategories.subscribe(categories => {
-     this.options = categories;
+      this.options = categories;
     });
   }
 
@@ -190,18 +190,25 @@ export class AddItemPage implements OnInit {
     this.vCtrl.dismiss();
   }
 
-  //done() {
-  //this.saveProduct();
-  //}
-
   saveProduct() {
     if (!this.productForm.valid) {
       return;
     }
     this.productForm.controls["profilePic"].setValue(this.url);
-    var res = this.service.saveProduct(this.productForm.value);
+    var res = this.service.addProduct(this.productForm.value);
     if (res) {
-      this.rebuildForm();
+      let toast = this.tCtrl.create({
+        message: 'Product added successfully',
+        duration: 3000,
+        cssClass: 'customtoast',
+        position: 'top',
+        showCloseButton: true,
+        closeButtonText: 'OK'
+      });
+      toast.onDidDismiss(() => {
+        this.rebuildForm();
+      });
+      toast.present();
     } else { }
   }
 }

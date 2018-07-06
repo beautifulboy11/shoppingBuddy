@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
         title: "appliances",
         src: "assets/imgs/appliances.png",
         alt: "appliances",
-        category:{categoryName: "Appliances", description:"Kitchen and Cooking Appliances"}
+        category: { categoryName: "Appliances", description: "Kitchen and Cooking Appliances" }
       },
 
       {
@@ -55,7 +55,7 @@ export class HomePage implements OnInit {
         title: "electronics &amp; entertainment",
         src: "assets/imgs/electronics-entertainment.png",
         alt: "electronics &amp; entertainment",
-        category:{categoryName: "Appliances", description:"Kitchen and Cooking Appliances"}
+        category: { categoryName: "Appliances", description: "Kitchen and Cooking Appliances" }
       },
 
       {
@@ -63,7 +63,7 @@ export class HomePage implements OnInit {
         title: "cellular &amp; computers",
         src: "assets/imgs/cellular-computers.png",
         alt: "cellular &amp; computers",
-        category:{categoryName: "Appliances", description:"Kitchen and Cooking Appliances"}
+        category: { categoryName: "Appliances", description: "Kitchen and Cooking Appliances" }
       },
 
       {
@@ -71,7 +71,7 @@ export class HomePage implements OnInit {
         title: "baby &amp; toys",
         src: "assets/imgs/baby-toys.png",
         alt: "baby &amp; toys",
-        category:{categoryName: "Baby & Toys", description:"Baby products and play toys"}
+        category: { categoryName: "Baby & Toys", description: "Baby products and play toys" }
       },
 
       {
@@ -79,7 +79,7 @@ export class HomePage implements OnInit {
         title: "sports_leisure.png",
         src: "assets/imgs/sports-leisure.png",
         alt: "sports_leisure.png",
-        category:{categoryName: "Sports & Leisure", description:""}
+        category: { categoryName: "Sports & Leisure", description: "" }
       },
 
       {
@@ -87,8 +87,8 @@ export class HomePage implements OnInit {
         title: "diy_auto.png",
         src: "assets/imgs/diy-auto.png",
         alt: "diy_auto.png",
-        category:{categoryName: "DIY & Auto", description:""}
-        
+        category: { categoryName: "DIY & Auto", description: "" }
+
       },
 
       {
@@ -96,7 +96,7 @@ export class HomePage implements OnInit {
         title: "home &amp; garden",
         src: "assets/imgs/home-garden.png",
         alt: "home &amp; garden",
-        category:{categoryName: "Home & Garden", description:"Decor, Gardening tools, Furniture"}
+        category: { categoryName: "Home & Garden", description: "Decor, Gardening tools, Furniture" }
       },
 
       {
@@ -104,7 +104,7 @@ export class HomePage implements OnInit {
         title: "gorceries_household.png",
         src: "assets/imgs/gorceries-household.png",
         alt: "gorceries_household.png",
-        category:{categoryName: "Groceries & Household", description:"All household items"}
+        category: { categoryName: "Groceries & Household", description: "All household items" }
       },
 
       {
@@ -112,7 +112,7 @@ export class HomePage implements OnInit {
         title: "health &amp; beauty",
         src: "assets/imgs/health-beauty.png",
         alt: "health &amp; beauty",
-        category:{categoryName: "Health & Beauty", description:"Cosmetics, Jewellery ,Health Care"}
+        category: { categoryName: "Health & Beauty", description: "Cosmetics, Jewellery ,Health Care" }
       },
 
       {
@@ -120,7 +120,7 @@ export class HomePage implements OnInit {
         title: "liquor",
         src: "assets/imgs/liquor.png",
         alt: "liquor",
-        category:{categoryName: "Liquor", description:"Spirits, Wine, Beers & Ciders"}
+        category: { categoryName: "Liquor", description: "Spirits, Wine, Beers & Ciders" }
       }
     ];
     this.bannerslide = [
@@ -134,7 +134,7 @@ export class HomePage implements OnInit {
     this.ready = true;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   previousSlide() {
     this.slides.slideTo(3, 500);
@@ -150,7 +150,11 @@ export class HomePage implements OnInit {
     let addModal = this.modalCtrl.create('AddCategoryPage');
     addModal.onDidDismiss(category => {
       if (category) {
-        this.productService.saveCategory(category);
+        if (category.storeName) {
+          this.productService.addStore(category);
+        } else {
+          this.productService.addCategory(category);
+        }
       }
     });
     addModal.present();

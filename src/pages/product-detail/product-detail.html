@@ -9,14 +9,14 @@
   </ion-navbar>
   <ion-toolbar>
     <div class="profile">
-      <div class="profile-image" text-center>
+      <div class="profile-image" text-center #profilePic [style.background-image]="'url(' + selectedProduct.profilePic + ')'">
         <img [src]="selectedProduct?.profilePic" class="image-circle" style="height: 100%;" />
       </div>
       <div text-center style="color: #fff;">
-          <h2 style="margin-top: 0rem;">{{selectedProduct?.productName}}</h2>
-          <ion-note>ZMK{{selectedProduct?.storePrice}}</ion-note>
+        <h2 style="margin-top: 0rem;">{{selectedProduct?.productName}}</h2>
+        <ion-note>ZMK{{selectedProduct?.storePrice}}</ion-note>
       </div>
-    </div>    
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -40,4 +40,3 @@
     </ion-item>
   </ion-list>
 </ion-content>
-

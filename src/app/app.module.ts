@@ -10,7 +10,6 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { environment } from "../environments/environment";
 import { FormsModule } from "@angular/forms";
 import { Camera } from "@ionic-native/camera";
-import { UploadFileService } from '../providers/providers';
 import { ProductService } from '../providers/providers';
 import { MyApp } from "./app.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,8 +42,7 @@ import { Keyboard } from "@ionic-native/keyboard";
     Camera,
     Keyboard,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    UploadFileService,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },    
     ProductService,
     AuthService,
     //AuthGuardProvider

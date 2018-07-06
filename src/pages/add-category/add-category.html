@@ -6,17 +6,15 @@
         <ion-icon name="close" style="font-size: 1.8em; font-weight:bold;"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="done()" color="light" [disabled]="!isReadyToSave" strong tappable>
-        <ion-icon name="checkmark" style="font-size: 1.8em; font-weight:bold;"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
   <ion-grid>
+    <ion-item-group>
+      <ion-item-divider color="light">Add New Category</ion-item-divider>
+    </ion-item-group>
     <ion-row class="flexo">
       <ion-col col-12>
         <form *ngIf="form" [formGroup]="form">
@@ -30,6 +28,31 @@
               <ion-textarea formControlName="description" placeholder="Enter a description"></ion-textarea>
             </ion-item>
           </ion-list>
+          <button ion-button (click)="addCategory()" [disabled]="!isReadyToSave" strong small>
+            Save
+          </button>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-item-group>
+      <ion-item-divider color="light">Add New Store</ion-item-divider>
+    </ion-item-group>
+    <ion-row class="flexo">
+      <ion-col col-12>
+        <form *ngIf="storeform" [formGroup]="storeform">
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Category Name:</ion-label>
+              <ion-input type="text" placeholder="Game Stores" formControlName="storeName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Description:</ion-label>
+              <ion-textarea formControlName="storeLocation" placeholder="Enter a Location"></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <button ion-button (click)="addStore()" small>
+            Save
+          </button>
         </form>
       </ion-col>
     </ion-row>

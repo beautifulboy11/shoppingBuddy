@@ -10,10 +10,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddCategoryPage {
   isReadyToSave: boolean;
   form: FormGroup;
-  constructor(public viewCtrl: ViewController, public formBuilder: FormBuilder) {    
+  storeform: FormGroup;
+  constructor(public viewCtrl: ViewController, public formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      categoryName: ["", Validators.required],
-      description: ["", Validators.required]
+      categoryName: ["", Validators.compose([Validators.required, Validators.minLength(2)])],
+      description: ["", Validators.compose([Validators.required, Validators.minLength(2)])]
+    });
+
+    this.storeform = formBuilder.group({
+      storeName: ["", Validators.compose([Validators.required, Validators.minLength(2)])],
+      storeLocation: ["", Validators.compose([Validators.required, Validators.minLength(2)])]
     });
 
     this.form.valueChanges.subscribe(v => {
@@ -24,7 +30,12 @@ export class AddCategoryPage {
   cancel() {
     this.viewCtrl.dismiss();
   }
-  done() {
+
+  addStore() {    
+    if (!this.storeform.valid) { return; }
+    this.viewCtrl.dismiss(this.storeform.value);
+  }
+  addCategory() {
     if (!this.form.valid) { return; }
     this.viewCtrl.dismiss(this.form.value);
   }

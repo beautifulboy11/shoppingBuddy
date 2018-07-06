@@ -45,7 +45,7 @@ export class ProductsPage implements OnInit {
     let addModal = this.modalCtrl.create('AddItemPage', { category: this.category });
     addModal.onDidDismiss(product => {
       if (product) {
-        this.productService.saveProduct(product);
+        this.productService.addProduct(product);
       }
     });
     addModal.present();

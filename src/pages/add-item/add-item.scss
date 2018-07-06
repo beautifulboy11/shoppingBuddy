@@ -1,4 +1,7 @@
 page-add-item {
+    .customtoast{
+        .toast-message { border-radius: 0.65rem !important; background: color($colors, secondary) }
+    }
     .spinner {
         width: 40px;
         height: 40px;
