@@ -29,7 +29,7 @@
           <div style="z-index: 1000; margin-left: -30px;">
             <ion-spinner *ngIf="isprofilePicSet && progressPercentage < 100" name="crescent"></ion-spinner>
           </div>
-          <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="isprofilePicSet">
+          <div [class]="Profile" [style.backgroundImage]="getProfileImageStyle()" *ngIf="isprofilePicSet">              
           </div>
           <div style="margin: auto;">
             <p *ngIf="isprofilePicSet && progressPercentage < 100" style="color: #0a8630;">Uploading</p>

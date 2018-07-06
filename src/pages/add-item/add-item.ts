@@ -33,7 +33,7 @@ export class AddItemPage implements OnInit {
   category: Category;
   progressPercentage: number;
   productForm: FormGroup;
-
+  public Profile = 'profile0';
   constructor(
     public nCtrl: NavController,
     public tCtrl: ToastController,
@@ -94,6 +94,7 @@ export class AddItemPage implements OnInit {
     uploadTask.on('state_changed',
       (snapshot: UploadTaskSnapshot) => {
         this.progressPercentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        this.changeClass();
       },
       (err) => {
         this.error = err;
@@ -106,6 +107,24 @@ export class AddItemPage implements OnInit {
           this.handleError(error);
         })
       });
+  }
+
+  changeClass(){
+    if(this.progressPercentage > 0 && this.progressPercentage <= 20){
+      this.Profile = 'profile1';
+    }
+    if(this.progressPercentage > 20 && this.progressPercentage <= 40){
+      this.Profile = 'profile2';
+    }
+    if(this.progressPercentage > 40 && this.progressPercentage <= 60){
+      this.Profile = 'profile3';
+    }
+    if(this.progressPercentage > 60 && this.progressPercentage <= 80){
+      this.Profile = 'profile4';
+    }
+    if(this.progressPercentage > 80 && this.progressPercentage <= 100){
+      this.Profile = 'profile5';
+    }
   }
 
   getProfileImageStyle() {

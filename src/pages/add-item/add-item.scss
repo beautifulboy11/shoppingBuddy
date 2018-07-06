@@ -1,86 +1,169 @@
 page-add-item {
-    .customtoast{
-        .toast-message { border-radius: 0.65rem !important; background: color($colors, secondary) }
+  .customtoast {
+    .toast-message {
+      border-radius: 0.65rem !important;
+      background: color($colors, secondary)
     }
-    .spinner {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        margin: 0px auto;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin: 0px auto;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  ion-spinner * {
+    margin: 40px auto;
+    width: 28px;
+    height: 28px;
+    stroke: #488aff;
+    fill: #488aff;
+  }
+  #uploader {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    height: 6px;
+    margin-bottom: 10px;
+  }
+  .no-scroll {
+    overflow: hidden;
+    justify-content: center;
+    height: 100vh;
+  }
+  .progress-outer {
+    width: 100%;
+    padding: 1px;
+    text-align: center;
+    background-color: map-get($colors, light);
+    color: #fff;
+  }
+  .progress-inner {
+    min-width: 1%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 2px;
+    height: 5px;
+    background-color: map-get($colors, secondary);
+  }
+  ion-grid {
+    min-height: 100%;
+  }
+  .flexo {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex: 1;
+  }
+  .profile0 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f5efef;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+  .profile1 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f5efef;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+  }
+  .profile2 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f5efef;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+  }
+  .profile3 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f5efef;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+  }
+  .profile4 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f5efef;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+  }
+  .profile5 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f5efef;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+  }
+  .profile-image-wrapper {
+    text-align: center;
+    justify-content: center;
+    margin: 0px 0;
+    .profile-image-placeholder {
+      display: inline-block;
+      background-color: #D4E6F1;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      font-size: 12px;
+      ion-icon {
+        font-size: 44px;
+        margin-bottom: -10px;
+        margin-top: 10px;
+      }
     }
-    ion-spinner * {
-        margin: 40px auto;
-        width: 28px;
-        height: 28px;
-        stroke: #488aff;
-        fill: #488aff;
-    }
-    #uploader {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 50%;
-        height: 6px;
-        margin-bottom: 10px;
-    }
-    .no-scroll {
-        overflow: hidden;
-        justify-content: center;
-        height: 100vh;
-    }
-    .progress-outer {
-        width: 100%;
-        padding: 1px;
-        text-align: center;
-        background-color: map-get($colors, light);
-        color: #fff;
-    }
-    .progress-inner {
-        min-width: 1%;
-        white-space: nowrap;
-        overflow: hidden;
-        padding: 2px;
-        height: 5px;
-        background-color: map-get($colors, secondary);
-    }
-    ion-grid {
-        min-height: 100%;
-    }
-    .flexo {
-        display: flex;
-        min-height: 100vh;
-        width: 100%;
-        flex: 1;
-    }
-    .profile-image-wrapper {
-        text-align: center;
-        justify-content: center;
-        margin: 0px 0;
-        .profile-image {
-            width: 96px;
-            height: 96px;
-            border: 1px solid grey;
-            border-radius: 50%;
-            display: inline-block;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-        .profile-image-placeholder {
-            display: inline-block;
-            background-color: #D4E6F1;
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            font-size: 12px;
-            ion-icon {
-                font-size: 44px;
-                margin-bottom: -10px;
-                margin-top: 10px;
-            }
-        }
-    }
+  }
 }
