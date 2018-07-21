@@ -9,7 +9,7 @@ import {
 } from "ionic-angular";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { Category } from "../../models/Category";
+import { Category } from '../../providers/models/models';
 import { ProductService } from "../../providers/providers";
 import { UploadTaskSnapshot } from "@firebase/storage-types";
 

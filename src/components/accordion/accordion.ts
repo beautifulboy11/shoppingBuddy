@@ -13,7 +13,7 @@ import {
 })
 export class AccordionComponent implements OnInit {
   @ViewChild("content", { read: ElementRef }) Content;
-  @Input("title") title: string;
+  // @Input("title") title: string;
   icon: string = "ios-arrow-forward";
   accordionExapanded = false;
   

@@ -1,16 +1,17 @@
 <div>
-    <div (click)="toggleAccordion()">
-      <ion-list style="margin-bottom: 0px;">
-        <ion-item>
-          <ion-icon item-start name="leaf" style="color:#3498DB;"></ion-icon>
-          <h2>{{ title }}</h2>
-          <ion-icon item-end [name]="icon" style="color:#EAEDED;"></ion-icon>
-        </ion-item>
-      </ion-list>
-    </div>
-    <div #accordionWrapper [class.collapsed]="!accordionExapanded">
-      <div #content class="accordion-wrapper" style="overflow: auto; padding-left: 20px;">
-        <ng-content></ng-content>
-      </div>
+  <div (click)="toggleAccordion()">
+    <ion-list style="margin-bottom: 0px;" no-lines>
+        <ion-list-header>Categories</ion-list-header>
+      <button ion-item detail-none [color]="'light'">
+        <ion-icon item-left name="albums" [color]="'text2'"></ion-icon>
+        <span ion-text [color]="'text1'">Categories</span>
+        <ion-icon item-end [name]="icon" style="color:#EAEDED;"></ion-icon>
+      </button>
+    </ion-list>
+  </div>
+  <div #accordionWrapper [class.collapsed]="!accordionExapanded">
+    <div #content class="accordion-wrapper" style="overflow: auto; padding-left: 20px;">
+      <ng-content></ng-content>
     </div>
   </div>
+</div>

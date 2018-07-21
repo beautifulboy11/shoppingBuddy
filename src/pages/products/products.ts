@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IonicPage, NavController, NavParams, ModalController } from "ionic-angular";
-import { Category } from "../../models/Category";
-import { Product } from "../../models/Product";
+import { Category, Product } from "../../providers/models/models";
 import { ProductService } from "../../providers/providers";
 
 @IonicPage()

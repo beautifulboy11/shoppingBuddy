@@ -6,7 +6,7 @@ import {
   Slides
 } from "ionic-angular";
 import { ProductService } from "../../providers/providers";
-import { Category } from "../../models/Category";
+import { Category } from "../../providers/models/models";
 
 export interface Item {
   brand: string;
@@ -158,5 +158,9 @@ export class HomePage implements OnInit {
       }
     });
     addModal.present();
+  }
+
+  search(){
+    this.navCtrl.push('SearchPage');
   }
 }

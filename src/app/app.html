@@ -13,51 +13,46 @@
     <div class="double-bounce2"></div>
   </div>
 </div>
-<ion-split-pane>
+<ion-split-pane when="(min-width: 500px)">
   <ion-menu [content]="content">
     <ion-header no-border class="menu-image-height">
       <ion-navbar no-border style="padding:0" class="menu-image-height">
-        <img class="menu-image menu-image-height" src="assets/imgs/menu.jpg"/>      
+        <img class="menu-image menu-image-height" src="assets/imgs/menu.jpg" />
       </ion-navbar>
     </ion-header>
-  
-    <ion-content>     
+
+    <ion-content>
       <div class="menu-content">
-        <accordion [title]="'Categories'">
-            <ion-list-header>Categories</ion-list-header>
+        <accordion>
           <ion-list no-lines>
-            <button ion-item detail-none menuClose 
-                    *ngFor="let category of categories" (click)="openPage(category)"
-                    [color]="isActive(category)?'light':null" >
-                    <ion-icon item-left name="albums" [color]="isActive(category)?null:'text2'"></ion-icon>
-                    <span ion-text [color]="isActive(category)?null:'text1'">{{category.categoryName}}</span>                                
+            <button ion-item detail-none menuClose *ngFor="let category of categories" (click)="openPage(category)" [color]="isActive(category)?'light':null">
+              <span ion-text [color]="isActive(category)?null:'text1'">{{category.categoryName}}</span>
             </button>
           </ion-list>
         </accordion>
-        <ion-list>
-          <ion-item>
-            <ion-icon name="cart" item-start color="primary"></ion-icon>
-            My Cart
-          </ion-item>
-          <ion-item>
-            <ion-icon name="cog" item-start color="bright"></ion-icon>
-            Settings
-          </ion-item>
+        <ion-list no-lines>
+          <ion-list-header>Personal</ion-list-header>
+          <button ion-item detail-none menuClose [color]="'light'">
+            <ion-icon item-left name="cart" [color]="'text2'"></ion-icon>
+            <span ion-text [color]="'text1'">My Cart</span>
+          </button>
+          <button ion-item detail-none menuClose [color]="'light'">
+            <ion-icon item-left name="cog" [color]="'text2'"></ion-icon>
+            <span ion-text [color]="'text1'">Settings</span>
+          </button>
         </ion-list>
-        
       </div>
-      <ion-footer>
-          <ion-toolbar>
-              <ion-list>
-                  <button menuClose ion-item (click)="logout()">
-                    <ion-icon name="log-out" item-start color="primary"></ion-icon>
-                    Log Out
-                  </button>
-                </ion-list>
-          </ion-toolbar>
-        </ion-footer>
-      <p class="powered-by" ion-text color="text3" (click)="poweredBy()">Powered by Dak Ent</p>
+
+      <p class="powered-by" ion-text color="text3" (click)="poweredBy()">
+        <ion-list no-lines>
+          <button ion-item menuClose (click)="logout()">
+            <ion-icon name="log-out" item-start color="primary"></ion-icon>
+            Log Out
+          </button>
+        </ion-list>
+        Powered by Dak Ent.
+      </p>
     </ion-content>
-  </ion-menu> 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  </ion-menu>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
 </ion-split-pane>

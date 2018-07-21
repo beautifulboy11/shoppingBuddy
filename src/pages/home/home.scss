@@ -1,6 +1,9 @@
 .ios,
 .md {
   page-home {
+    .item.class{
+      width: 100%;
+    }
     .strikethrough{
       text-decoration: line-through;
     }

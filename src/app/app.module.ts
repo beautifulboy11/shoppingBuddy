@@ -16,7 +16,7 @@ import { ShoppingApp } from "./app.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from '../components/components.module';
 import { ProductService, AuthService} from '../providers/providers';
-import { environment } from "../environments/environment";
+import { environment } from "../providers/environments/environment";
 
 @NgModule({
   declarations: [

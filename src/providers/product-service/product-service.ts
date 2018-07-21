@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Product } from "../../models/Product";
 import { Observable } from "rxjs";
 import { AngularFirestore } from "angularfire2/firestore";
-import { Category } from "../../models/Category";
-import { Store } from "../../models/Store";
+import { Store, Product, Category } from "../models/models";
 
 @Injectable()
 export class ProductService {
@@ -20,7 +18,7 @@ export class ProductService {
   get getStores(): Observable<Array<Category>> {
     return this.afs.collection<any>('stores').valueChanges();
   }
- 
+
   addStore(store: Store): any {
     var id = this.afs.createId();
     return this.afs.collection('stores').doc(id).set(store);

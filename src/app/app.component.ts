@@ -5,7 +5,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { Keyboard } from "@ionic-native/keyboard";
 import { BrowserTab } from '@ionic-native/browser-tab';
 import { timer } from "rxjs/observable/timer";
-import { Category } from "../models/Category";
+import { Category } from "../providers/models/models";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AuthService, ProductService} from "../providers/providers";
 

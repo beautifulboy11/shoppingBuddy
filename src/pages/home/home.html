@@ -4,6 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button showWhen="ios" ion-button (click)='search()'>
+        <ion-icon name='search'></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -44,7 +49,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row align-items-center justify-content-center>
+      <ion-row align-items-center justify-content-center no-padding>
         <ion-col col-12 col-xs-12 col-sm-12 col-md-3 align-self-center *ngFor="let item of items" text-center>
           <div (click)="gotoProducts(item.category)">
             <img [class]="item.class" [title]="item.title" [src]="item.src" [alt]="item.alt">
@@ -54,9 +59,8 @@
     </ion-grid>
   </main>
   <ion-fab right bottom>
-    <button ion-fab mini color="secondary" (click)="addCategory()">
+    <button ion-fab mini color="primary" (click)="addCategory()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>
-
