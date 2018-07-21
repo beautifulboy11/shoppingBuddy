@@ -1,31 +1,31 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { BrowserTab } from '@ionic-native/browser-tab';
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireStorageModule } from 'angularfire2/storage';
-import { environment } from "../environments/environment";
+
 import { FormsModule } from "@angular/forms";
 import { Camera } from "@ionic-native/camera";
-import { ProductService } from '../providers/providers';
-import { MyApp } from "./app.component";
+import { Keyboard } from "@ionic-native/keyboard";
+import { ShoppingApp } from "./app.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from '../components/components.module';
-import { AuthService } from '../providers/providers';
-import { Keyboard } from "@ionic-native/keyboard";
-// import { AuthGuardProvider } from '../providers/auth-guard/auth-guard';
+import { ProductService, AuthService} from '../providers/providers';
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [
-    MyApp,
+    ShoppingApp,
   ],
   imports: [
     BrowserModule,  
     BrowserAnimationsModule, 
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(ShoppingApp, {preloadModules: true}),
     FormsModule,    
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -35,7 +35,7 @@ import { Keyboard } from "@ionic-native/keyboard";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    ShoppingApp
   ],
   providers: [
     StatusBar,
@@ -45,7 +45,7 @@ import { Keyboard } from "@ionic-native/keyboard";
     { provide: ErrorHandler, useClass: IonicErrorHandler },    
     ProductService,
     AuthService,
-    //AuthGuardProvider
+    BrowserTab 
   ]
 })
 export class AppModule { }

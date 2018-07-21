@@ -1,5 +1,6 @@
 import { IonicModule } from 'ionic-angular';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MessagesComponent } from './messages/messages';
 import { AppFooterComponent } from './app-footer/app-footer';
 import { AccordionComponent } from './accordion/accordion';
@@ -8,6 +9,7 @@ import { AccordionComponent } from './accordion/accordion';
 		AppFooterComponent,
 		AccordionComponent,],
 	imports: [
+		CommonModule,
 		IonicModule
 	],
 	exports: [
